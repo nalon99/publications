@@ -16,3 +16,8 @@ Under this chapter I collect some results applying the well know three bars reve
 
 The second case (ii) uses the same pattern, and in addition adds a filter signal looking for an underlying "momemtum" of the trend, in order to avoid entering a long position when a downward price movement is occuring.
 As many momentum indicators (RSI, MACD, etc.) this creates a lag of the responsiveness of the system, and during sideways period, may be uneffective.
+
+
+
+**Conclusions**
+My view about this pattern is negative at least for two different scenario of the SP&500 index. Used for an intraday trading system, in particular with a short period (5 minutes) implies negative returns on the long run. Using a momentum indicator to filter out bad downward movements can help the overall result, but in a real trading environment with a slippage and other commissions it's not enough.
