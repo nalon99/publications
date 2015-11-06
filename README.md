@@ -7,7 +7,7 @@ With GitHub Pages I will add more content to the repository for different backte
 ## Three bars reversal
 Under this chapter I collect some results applying the well know three bars reversal pattern. The underlying asset is the SP&500 index, starting from the turmoil of global financial markets during August 2015. My focus is to simulate an intraday trading with a 5 minutes time frame, LONG only, so the pattern is used to buy a position and sell it at a higher price (hopefully). All simulations are tested with my software libraries written in R.
 
-**Bearish and sideways cycle**
+##### Bearish and sideways cycle
 1. Simulations assuming Slippage = 0
   1. [Three bars reversal](https://nalon99.github.io/publications/setup_3bars_no_slippage.html)
   2. [Three bars reversal with momentum](https://nalon99.github.io/publications/setup_3bars_enhanced_no_slippage.html)
@@ -15,7 +15,7 @@ Under this chapter I collect some results applying the well know three bars reve
   1. [Three bars reversal](https://nalon99.github.io/publications/setup_3bars_slippage.html)
   2. [Three bars reversal with momentum](https://nalon99.github.io/publications/setup_3bars_enhanced_slippage.html)
 
-**Bearish end - Bullish cycle**
+##### Bearish end - Bullish cycle
 1. Simulations assuming Slippage = 0
   1. [Three bars reversal](https://nalon99.github.io/publications/setup_3bars_bullish_no_slippage.html)
   2. [Three bars reversal with momentum](https://nalon99.github.io/publications/setup_3bars_bullish_enhanced_no_slippage.html)
