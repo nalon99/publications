@@ -1,5 +1,6 @@
 ## Three bars reversal
-Under this chapter I collect some results applying the well know three bars reversal pattern. The underlying asset is the SP&500 index, starting from the turmoil of global financial markets during August 2015. My focus is to simulate an intraday trading with a 5 minutes time frame, LONG only, so the pattern is used to buy a position and sell it at a higher price (hopefully). All simulations are tested with my software libraries written in R.
+Under this chapter I collect some results applying the well know three bars reversal pattern. For a longer explanation please refer to this [link](http://www.tradingsetupsreview.com/three-bar-reversal-pattern-day-trading/).  
+The underlying asset is the **SP&500 index**, starting from the turmoil of global financial markets during August 2015. My focus is to simulate an intraday trading with a 5 minutes time frame, LONG only, so the pattern is used to buy a position and sell it at a higher price (hopefully). All simulations are tested with my software libraries written in R.
 
 ##### Bearish and sideways cycle
 1. Simulations assuming Slippage = 0
