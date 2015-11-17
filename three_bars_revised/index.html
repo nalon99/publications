@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Publications by nalon99</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Publications</h1>
+        <p>Repository for my ongoing research</p>
+        <p class="view"><a href="https://github.com/nalon99/publications">View the Project on GitHub <small>nalon99/publications</small></a></p>
+        <ul>
+          <li><a href="https://github.com/nalon99/publications/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/nalon99/publications/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/nalon99/publications">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="three-bars-reversal-revised" class="anchor" href="#three-bars-reversal-revised" aria-hidden="true"><span class="octicon octicon-link"></span></a>Three bars reversal revised</h2>
+
+<p>A revised version of the three bars reversal pattern is depicted in this folder.
+Before digging into it I strongly recommend to look at my previous study of the classic <a href="http://nalon99.github.io/publications/three_bars/">three bars reversal pattern</a>.</p>
+
+<p>Let's assume to have three bars: Bar 1, Bar 2, Bar 3 and the last bar is Bar 3.<br>
+The classic three bars reversal batter suggest to enter a long position if:<br>
+1. Bar 1 closes down<br>
+2. Low of Bar 2 is below low of Bar 1 (and Bar 3)<br>
+3. High of Bar 2 is below high of Bar 1<br>
+4. Bar 3 closes above the high of both Bar 1 and Bar 2<br>
+5. Buy at close of Bar 3  </p>
+
+<p>I'm going to change the rules 4 and 5 with the followings:<br>
+4. Place a BUY STOP order at high of Bar 2 (before the Bar 3 closes)<br>
+5. A long position will be entered if and only if Bar 3 reaches the high of Bar 2  </p>
+
+<p>The main difference is that we don't need to wait for the close of the Bar 3, if the Bar 3 is going above the high of the Bar 2, a BUY STOP order is hit and the position is entered.  </p>
+
+<p>The underlying asset is the <strong>S&amp;P 500 index</strong>.<br>
+My focus is to simulate an algorithmic trading over a LONG only direction, so the pattern is used to buy a position and sell it at a higher price (hopefully). All simulations are tested with my software libraries written in R.</p>
+
+<h5>
+<a id="daily-bars" class="anchor" href="#daily-bars" aria-hidden="true"><span class="octicon octicon-link"></span></a>Daily bars</h5>
+
+<ol>
+<li>Simulations assuming Slippage = 0
+
+<ol>
+<li><a href="https://nalon99.github.io/publications/three_bars_revised/setup_3bars_revised_no_slippage.html">Three bars revised</a></li>
+<li><a href="https://nalon99.github.io/publications/three_bars_revised/setup_3bars_revised_enhanced_no_slippage.html">Three bars revised with momentum</a></li>
+</ol>
+</li>
+<li>Simulations assuming Slippage = 1 basis point
+
+<ol>
+<li><a href="https://nalon99.github.io/publications/three_bars_revised/setup_3bars_revised_slippage.html">Three bars revised</a></li>
+<li><a href="https://nalon99.github.io/publications/three_bars_revised/setup_3bars_revised_enhanced_slippage.html">Three bars revised with momentum</a></li>
+</ol>
+</li>
+</ol>
+
+<h5>
+<a id="5-minutes-bars" class="anchor" href="#5-minutes-bars" aria-hidden="true"><span class="octicon octicon-link"></span></a>5 minutes bars</h5>
+
+<ol>
+<li>Simulations assuming Slippage = 0
+
+<ol>
+<li><a href="https://nalon99.github.io/publications/three_bars_revised/setup_3bars_revised_5_no_slippage.html">Three bars revised</a></li>
+<li><a href="https://nalon99.github.io/publications/three_bars_revised/setup_3bars_revised_5_enhanced_no_slippage.html">Three bars revised with momentum</a></li>
+</ol>
+</li>
+<li>Simulations assuming Slippage = 1 basis point
+
+<ol>
+<li><a href="https://nalon99.github.io/publications/three_bars_revised/setup_3bars_revised_5_slippage.html">Three bars revised</a></li>
+<li><a href="https://nalon99.github.io/publications/three_bars_revised/setup_3bars_revised_5_enhanced_slippage.html">Three bars revised with momentum</a></li>
+</ol>
+</li>
+</ol>
+
+<p>The second case (ii) uses the same pattern, and in addition adds a filter signal looking for an underlying "momentum" of the trend, in order to avoid entering a long position when a downward price movement is occurring.
+As many momentum indicators (RSI, MACD, etc.) this creates a lag of the responsiveness of the system, and during sideways period, may be ineffective.</p>
+
+<h4>
+<a id="conclusions" class="anchor" href="#conclusions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusions</h4>
+
+<p>Respect to my other simulation on the classic three bars reversal pattern, this modified version has an overall better performance. Looking at the intraday backtest with a 5 minutes timeframe, the equity curve is higher. There are many trades respect to the classic version of the pattern, and they help to get a better outcome.
+The problem arises when slippage is accounted and it affects the goodness of the system, so adding a momentum filter lowers down the total number of trades (and costs) and the equity curve has less drawdown and a higher total return.<br>
+Let's look at the daily bars backtest, in this case the revised pattern is outstanding, and slippage costs are very small respect to the average PnL (profit &amp; loss) of each trade. A momentum filter is not recommended and a simple exit strategies with a trailing stop set to the low price of the previous bar is the best chance.<br>
+From my perspective the revised pattern of the three bars reversal achieves better performances for a position trader and a day trader.  </p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/nalon99">nalon99</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
